@@ -1,7 +1,15 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "extends": "@tsconfig/strictest/tsconfig.json",
+  "compilerOptions": {
+    // project-specific tweaks
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"] // so you can import with "@/utils/date"
+    },
+    "jsx": "react-jsx", // JSX runtime
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Node"
+  },
+  "include": ["src", "server/index.ts"]
 }
